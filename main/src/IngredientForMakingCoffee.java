@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class IngredientsForCoffee {
+public class IngredientForMakingCoffee {
     public static void main (String[]args)
     {
         int water = 200;
