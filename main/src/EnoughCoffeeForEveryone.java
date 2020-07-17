@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 //declaring our variables:
+//
 public class EnoughCoffeeForEveryone {
     static int water = 200;
     static int milk = 50;
