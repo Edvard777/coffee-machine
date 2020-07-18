@@ -11,7 +11,7 @@ public class EnoughCoffeeForEveryone {
     //method which gets input from console, sorting ingredients and asking how much cup of coffee can make;
     public static void minCup(int inputWater,int inputMilk,int inputCoffeeBeans,int inputCups)
     {
-
+        
         int a = inputWater / water;
         int b = inputMilk / milk;
         int c = inputCoffeeBeans / coffeeBeans;
