@@ -40,7 +40,7 @@ public class OnACoffeeLoop {
         }
     }
 
-    //method buy asks to input which coffee wants to make,or if change the mind type back
+    // method buy asks to input which coffee wants to make,or if change the mind type back
     public static void buy ()
     {
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
