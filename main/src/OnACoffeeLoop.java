@@ -18,54 +18,54 @@ public class OnACoffeeLoop {
     static String remaining = "remaining";
     static String back = "back";
 
-
-    public static void action ()  // method action asks to user what he can do (buy, fill, take, see remaining,or exit)
+    // method action asks to user what he can do (buy, fill, take, see remaining,or exit)
+    public static void action (String buy,String fill,String take,String remaining,String exit)
     {
         System.out.println("Write action (buy, fill, take, remaining, exit):");
         Scanner scan = new Scanner(System.in);
         String actionType = scan.nextLine();
 
-        if (buy.equals(actionType)) {
-            buy();
-        } else if (fill.equals(actionType)) {
-            fill();
-        } else if (take.equals(actionType)) {
-            take();
-        } else if (remaining.equals(actionType)) {
-            remaining();
-        }
-        else if(exit.equals(actionType))
+        switch (actionType)
         {
-            exit();
+            case "buy": buy();
+            break;
+            case "fill": fill();
+            break;
+            case "take": take();
+            break;
+            case "remaining": remaining();
+            break;
+            case "exit": exit();
+            break;
         }
     }
 
-    public static void buy ()   //method buy asks to input which coffee wants to make,or if change the mind type back
+    //method buy asks to input which coffee wants to make,or if change the mind type back
+    public static void buy ()
     {
         System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
         Scanner scaner = new Scanner(System.in);
         String coffeeType = scaner.nextLine();
-        if(espresso.equals(coffeeType))
+        switch (coffeeType)
         {
-            espresso();
+            case "1": espresso();
+            break;
+            case "3": cappuccino();
+            break;
+            case "2": latte();
+            break;
+            case "back":  action(buy,fill, take,remaining,exit);
+            break;
+
         }
-        else if (cappuccino.equals(coffeeType))
-        {
-            cappuccino();
-        }
-        else if (latte.equals(coffeeType))
-        {
-            latte();
-        }
-        else if (back.equals(coffeeType))
-        {
-            action();
-        }
+
 
     }
 
-    public static void espresso ()          //method espresso which checks if available ingredients, makes a coffee,
+    //method espresso which checks if available ingredients, makes a coffee,
     //if not asks user what part of ingredient is missing:
+    public static void espresso ()
+
     {
         if(water>=250 && coffeeBeans>=16 && disCups!=0) {
             System.out.println("I have enough resources, making you a coffee!");
@@ -73,7 +73,7 @@ public class OnACoffeeLoop {
             coffeeBeans -=16;
             money +=4;
             disCups-=1;
-            action();
+            action(buy,fill, take,remaining,exit);
         }
         else if(water<250)
         {
@@ -88,12 +88,13 @@ public class OnACoffeeLoop {
             System.out.println("Sorry, not enough disposable cups");
 
         }
-        action();
+        action(buy,fill, take,remaining,exit);
 
     }
 
-    public static void cappuccino ()       //method cappuccino which checks if available ingredients, makes a coffee,
+    //method cappuccino which checks if available ingredients, makes a coffee,
     //if not asks user what part of ingredient is missing:
+    public static void cappuccino ()
     {
         if(water>=200 && milk>=100 && coffeeBeans>=12 && disCups!=0) {
             System.out.println("I have enough resources, making you a coffee!");
@@ -102,7 +103,7 @@ public class OnACoffeeLoop {
             coffeeBeans -= 12;
             money += 6;
             disCups -= 1;
-            action();
+            action(buy,fill, take,remaining,exit);
         }
         else if(water<200)
         {
@@ -120,10 +121,12 @@ public class OnACoffeeLoop {
         {
             System.out.println("Sorry, not enough disposable cups");
         }
-        action();
+        action(buy,fill, take,remaining,exit);
     }
-    public static void latte ()     //method latte which checks if available ingredients, makes a coffee,
+
+    //method latte which checks if available ingredients, makes a coffee,
     //if not asks user what part of ingredient is missing:
+    public static void latte ()
     {
         if(water>=350 && milk>=75 && coffeeBeans>=20 && disCups!=0) {
             System.out.println("I have enough resources, making you a coffee!");
@@ -132,7 +135,7 @@ public class OnACoffeeLoop {
             coffeeBeans -= 20;
             money += 7;
             disCups -= 1;
-            action();
+            action(buy,fill, take,remaining,exit);
         }
         else if(water<350)
         {
@@ -150,10 +153,11 @@ public class OnACoffeeLoop {
         {
             System.out.println("Sorry, not enough disposable cups");
         }
-        action();
+        action(buy,fill, take,remaining,exit);
     }
 
-    public static void fill ()  //method fill asks to user how much ingredients wants to add to coffee machine
+    //method fill asks to user how much ingredients wants to add to coffee machine
+    public static void fill ()
     {
         System.out.println("Write how many ml of water do you want to add:");
         Scanner scanner = new Scanner(System.in);
@@ -167,18 +171,19 @@ public class OnACoffeeLoop {
         System.out.println("Write how many disposable cups of coffee do you want to add:");
         Scanner scanner4 = new Scanner(System.in);
         disCups += scanner4.nextInt();
-        action();
+        action(buy,fill, take,remaining,exit);
     }
 
-
-    public static void take ()   // method take gives money from coffee machine to owner
+    // method take gives money from coffee machine to owner
+    public static void take ()
     {
         System.out.println("I gave you " + money +"$");
         money = 0;
-        action();
+        action(buy,fill, take,remaining,exit);
     }
 
-    public static void remaining()   //method remaining gives user how much ingredients and money is available
+    //method remaining gives user how much ingredients and money is available
+    public static void remaining()
     {
         System.out.println("The coffee machine has:\n" +
                 water + " of water\n" +
@@ -186,11 +191,12 @@ public class OnACoffeeLoop {
                 coffeeBeans+ " of coffee beans\n" +
                 disCups +" of disposable cups\n" +
                 money+ " of money\n");
-        action();
+        action(buy,fill, take,remaining,exit);
 
     }
 
-    public static void exit()  // method exit terminate the program
+    // method exit terminate the program
+    public static void exit()
 
     {
         Scanner scaner = new Scanner(System.in);
@@ -207,7 +213,7 @@ public class OnACoffeeLoop {
     public static void main(String[] args) {
 
         remaining();
-        action();
+        action(buy,fill, take,remaining,exit);
 
     }
 }
