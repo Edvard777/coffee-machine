@@ -11,9 +11,6 @@ public class OnACoffeeLoop {
     static String buy = "buy";
     static String fill = "fill";
     static String take = "take";
-    static String espresso = "1";
-    static String latte = "2";
-    static String cappuccino = "3";
     static String exit = "exit";
     static String remaining = "remaining";
     static String back = "back";
